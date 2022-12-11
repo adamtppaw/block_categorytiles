@@ -1,0 +1,26 @@
+{{#hascategorytiles}}
+<div class="categorytiles">
+    <div class="container-fluid">
+    <div class="row">
+
+        {{#categorytiles}}
+        {{#hastile}}
+
+        <div class="{{{class}}}">
+            <a href="{{{url}}}" class="category-tile d-block" title="Przejdź do kategori {{{title}}}">
+                <!-- <h3 class="card-title">{{{title}}}</h3>-->
+                <div class="categorytilescontent {{{tileimage}}}">
+                    <p>{{{content}}}<p>
+                </div>
+                {{{button}}}
+            </a>
+        </div>
+
+        {{/hastile}}
+        {{/categorytiles}}
+
+    </div>
+    </div>
+</div>
+<div style="clear:both;"></div>
+{{/hascategorytiles}}
