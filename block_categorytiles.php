@@ -30,7 +30,13 @@ class block_categorytiles extends block_base {
         // Needed by Moodle to differentiate between blocks.
         $this->title = get_string('pluginname', 'block_categorytiles');
     }
-
+    /**
+     * Default return is false - header will be shown
+     * @return boolean
+     */
+    function hide_header() {
+        return true;
+    }
     /**
      * Returns the block contents.
      *
