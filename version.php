@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_categorytiles';
 $plugin->release = '0.1.0';
-$plugin->version = 2022121102;
+$plugin->version = 2022121106;
 $plugin->requires = 2021051700;
 $plugin->maturity = MATURITY_ALPHA;

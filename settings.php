@@ -28,8 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 if ($hassiteconfig) {
     // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedIf
     if ($ADMIN->fulltree) {
-        // TODO: Define the plugin settings page - {@link https://docs.moodle.org/dev/Admin_settings}.
-
         // This is the descriptor for Category tile Spot One
         $name = 'block_categorytiles/categorytile1info';
         $heading = get_string('categorytile1', 'block_categorytiles');
