@@ -58,186 +58,188 @@ class main implements renderable, templatable {
      */
     public function export_for_template(renderer_base $output) {
         global $CFG, $PAGE, $USER, $DB;
+        $config = get_config('block_categorytiles');
+
         $hascategorytile1 =
-                (empty($PAGE->theme->settings->categorytile1 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile1);
-        $categorytile1content = (empty($PAGE->theme->settings->categorytile1content)) ? false :
-                format_text($PAGE->theme->settings->categorytile1content);
-        $categorytile1buttontext = (empty($PAGE->theme->settings->categorytile1buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile1buttontext);
+                (empty($config->categorytile1 )) ? false :
+                        format_string($config->categorytile1);
+        $categorytile1content = (empty($config->categorytile1content)) ? false :
+                format_text($config->categorytile1content);
+        $categorytile1buttontext = (empty($config->categorytile1buttontext)) ? false :
+                format_string($config->categorytile1buttontext);
         $categorytile1buttonurl =
-                (empty($PAGE->theme->settings->categorytile1buttonurl)) ? false : $PAGE->theme->settings->categorytile1buttonurl;
+                (empty($config->categorytile1buttonurl)) ? false : $config->categorytile1buttonurl;
         $categorytile1target =
-                (empty($PAGE->theme->settings->categorytile1target)) ? false : $PAGE->theme->settings->categorytile1target;
-        $categorytile1image = (empty($PAGE->theme->settings->categorytile1image)) ? false : 'categorytile1image';
+                (empty($config->categorytile1target)) ? false : $config->categorytile1target;
+        $categorytile1image = (empty($config->categorytile1image)) ? false : 'categorytile1image';
         if ($hascategorytile1 == true &&
                 substr($categorytile1buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile1buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile1 = false;
             }
         }
 
         $hascategorytile2 =
-                (empty($PAGE->theme->settings->categorytile2 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile2);
-        $categorytile2content = (empty($PAGE->theme->settings->categorytile2content)) ? false :
-                format_text($PAGE->theme->settings->categorytile2content);
-        $categorytile2buttontext = (empty($PAGE->theme->settings->categorytile2buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile2buttontext);
+                (empty($config->categorytile2 )) ? false :
+                        format_string($config->categorytile2);
+        $categorytile2content = (empty($config->categorytile2content)) ? false :
+                format_text($config->categorytile2content);
+        $categorytile2buttontext = (empty($config->categorytile2buttontext)) ? false :
+                format_string($config->categorytile2buttontext);
         $categorytile2buttonurl =
-                (empty($PAGE->theme->settings->categorytile2buttonurl)) ? false : $PAGE->theme->settings->categorytile2buttonurl;
+                (empty($config->categorytile2buttonurl)) ? false : $config->categorytile2buttonurl;
         $categorytile2target =
-                (empty($PAGE->theme->settings->categorytile2target)) ? false : $PAGE->theme->settings->categorytile2target;
-        $categorytile2image = (empty($PAGE->theme->settings->categorytile2image)) ? false : 'categorytile2image';
+                (empty($config->categorytile2target)) ? false : $config->categorytile2target;
+        $categorytile2image = (empty($config->categorytile2image)) ? false : 'categorytile2image';
         if ($hascategorytile2 == true &&
                 substr($categorytile2buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile2buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile2 = false;
             }
         }
 
         $hascategorytile3 =
-                (empty($PAGE->theme->settings->categorytile3 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile3);
-        $categorytile3content = (empty($PAGE->theme->settings->categorytile3content)) ? false :
-                format_text($PAGE->theme->settings->categorytile3content);
-        $categorytile3buttontext = (empty($PAGE->theme->settings->categorytile3buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile3buttontext);
+                (empty($config->categorytile3 )) ? false :
+                        format_string($config->categorytile3);
+        $categorytile3content = (empty($config->categorytile3content)) ? false :
+                format_text($config->categorytile3content);
+        $categorytile3buttontext = (empty($config->categorytile3buttontext)) ? false :
+                format_string($config->categorytile3buttontext);
         $categorytile3buttonurl =
-                (empty($PAGE->theme->settings->categorytile3buttonurl)) ? false : $PAGE->theme->settings->categorytile3buttonurl;
+                (empty($config->categorytile3buttonurl)) ? false : $config->categorytile3buttonurl;
         $categorytile3target =
-                (empty($PAGE->theme->settings->categorytile3target)) ? false : $PAGE->theme->settings->categorytile3target;
-        $categorytile3image = (empty($PAGE->theme->settings->categorytile3image)) ? false : 'categorytile3image';
+                (empty($config->categorytile3target)) ? false : $config->categorytile3target;
+        $categorytile3image = (empty($config->categorytile3image)) ? false : 'categorytile3image';
         if ($hascategorytile3 == true &&
                 substr($categorytile3buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile3buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile3 = false;
             }
         }
 
         $hascategorytile4 =
-                (empty($PAGE->theme->settings->categorytile4 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile4);
-        $categorytile4content = (empty($PAGE->theme->settings->categorytile4content)) ? false :
-                format_text($PAGE->theme->settings->categorytile4content);
-        $categorytile4buttontext = (empty($PAGE->theme->settings->categorytile4buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile4buttontext);
+                (empty($config->categorytile4 )) ? false :
+                        format_string($config->categorytile4);
+        $categorytile4content = (empty($config->categorytile4content)) ? false :
+                format_text($config->categorytile4content);
+        $categorytile4buttontext = (empty($config->categorytile4buttontext)) ? false :
+                format_string($config->categorytile4buttontext);
         $categorytile4buttonurl =
-                (empty($PAGE->theme->settings->categorytile4buttonurl)) ? false : $PAGE->theme->settings->categorytile4buttonurl;
+                (empty($config->categorytile4buttonurl)) ? false : $config->categorytile4buttonurl;
         $categorytile4target =
-                (empty($PAGE->theme->settings->categorytile4target)) ? false : $PAGE->theme->settings->categorytile4target;
-        $categorytile4image = (empty($PAGE->theme->settings->categorytile4image)) ? false : 'categorytile4image';
+                (empty($config->categorytile4target)) ? false : $config->categorytile4target;
+        $categorytile4image = (empty($config->categorytile4image)) ? false : 'categorytile4image';
         if ($hascategorytile4 == true &&
                 substr($categorytile4buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile4buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile4 = false;
             }
         }
 
         $hascategorytile5 =
-                (empty($PAGE->theme->settings->categorytile5 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile5);
-        $categorytile5content = (empty($PAGE->theme->settings->categorytile5content)) ? false :
-                format_text($PAGE->theme->settings->categorytile5content);
-        $categorytile5buttontext = (empty($PAGE->theme->settings->categorytile5buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile5buttontext);
+                (empty($config->categorytile5 )) ? false :
+                        format_string($config->categorytile5);
+        $categorytile5content = (empty($config->categorytile5content)) ? false :
+                format_text($config->categorytile5content);
+        $categorytile5buttontext = (empty($config->categorytile5buttontext)) ? false :
+                format_string($config->categorytile5buttontext);
         $categorytile5buttonurl =
-                (empty($PAGE->theme->settings->categorytile5buttonurl)) ? false : $PAGE->theme->settings->categorytile5buttonurl;
+                (empty($config->categorytile5buttonurl)) ? false : $config->categorytile5buttonurl;
         $categorytile5target =
-                (empty($PAGE->theme->settings->categorytile5target)) ? false : $PAGE->theme->settings->categorytile5target;
-        $categorytile5image = (empty($PAGE->theme->settings->categorytile5image)) ? false : 'categorytile5image';
+                (empty($config->categorytile5target)) ? false : $config->categorytile5target;
+        $categorytile5image = (empty($config->categorytile5image)) ? false : 'categorytile5image';
         if ($hascategorytile5 == true &&
                 substr($categorytile5buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile5buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile5 = false;
             }
         }
 
         $hascategorytile6 =
-                (empty($PAGE->theme->settings->categorytile6 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile6);
-        $categorytile6content = (empty($PAGE->theme->settings->categorytile6content)) ? false :
-                format_text($PAGE->theme->settings->categorytile6content);
-        $categorytile6buttontext = (empty($PAGE->theme->settings->categorytile6buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile6buttontext);
+                (empty($config->categorytile6 )) ? false :
+                        format_string($config->categorytile6);
+        $categorytile6content = (empty($config->categorytile6content)) ? false :
+                format_text($config->categorytile6content);
+        $categorytile6buttontext = (empty($config->categorytile6buttontext)) ? false :
+                format_string($config->categorytile6buttontext);
         $categorytile6buttonurl =
-                (empty($PAGE->theme->settings->categorytile6buttonurl)) ? false : $PAGE->theme->settings->categorytile6buttonurl;
+                (empty($config->categorytile6buttonurl)) ? false : $config->categorytile6buttonurl;
         $categorytile6target =
-                (empty($PAGE->theme->settings->categorytile6target)) ? false : $PAGE->theme->settings->categorytile6target;
-        $categorytile6image = (empty($PAGE->theme->settings->categorytile6image)) ? false : 'categorytile6image';
+                (empty($config->categorytile6target)) ? false : $config->categorytile6target;
+        $categorytile6image = (empty($config->categorytile6image)) ? false : 'categorytile6image';
         if ($hascategorytile6 == true &&
                 substr($categorytile6buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile6buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile6 = false;
             }
         }
 
         $hascategorytile7 =
-                (empty($PAGE->theme->settings->categorytile7 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile7);
-        $categorytile7content = (empty($PAGE->theme->settings->categorytile7content)) ? false :
-                format_text($PAGE->theme->settings->categorytile7content);
-        $categorytile7buttontext = (empty($PAGE->theme->settings->categorytile7buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile7buttontext);
+                (empty($config->categorytile7 )) ? false :
+                        format_string($config->categorytile7);
+        $categorytile7content = (empty($config->categorytile7content)) ? false :
+                format_text($config->categorytile7content);
+        $categorytile7buttontext = (empty($config->categorytile7buttontext)) ? false :
+                format_string($config->categorytile7buttontext);
         $categorytile7buttonurl =
-                (empty($PAGE->theme->settings->categorytile7buttonurl)) ? false : $PAGE->theme->settings->categorytile7buttonurl;
+                (empty($config->categorytile7buttonurl)) ? false : $config->categorytile7buttonurl;
         $categorytile7target =
-                (empty($PAGE->theme->settings->categorytile7target)) ? false : $PAGE->theme->settings->categorytile7target;
-        $categorytile7image = (empty($PAGE->theme->settings->categorytile7image)) ? false : 'categorytile7image';
+                (empty($config->categorytile7target)) ? false : $config->categorytile7target;
+        $categorytile7image = (empty($config->categorytile7image)) ? false : 'categorytile7image';
         if ($hascategorytile7 == true &&
                 substr($categorytile7buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile7buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile7 = false;
             }
         }
 
         $hascategorytile8 =
-                (empty($PAGE->theme->settings->categorytile8 )) ? false :
-                        format_string($PAGE->theme->settings->categorytile8);
-        $categorytile8content = (empty($PAGE->theme->settings->categorytile8content)) ? false :
-                format_text($PAGE->theme->settings->categorytile8content);
-        $categorytile8buttontext = (empty($PAGE->theme->settings->categorytile8buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile8buttontext);
+                (empty($config->categorytile8 )) ? false :
+                        format_string($config->categorytile8);
+        $categorytile8content = (empty($config->categorytile8content)) ? false :
+                format_text($config->categorytile8content);
+        $categorytile8buttontext = (empty($config->categorytile8buttontext)) ? false :
+                format_string($config->categorytile8buttontext);
         $categorytile8buttonurl =
-                (empty($PAGE->theme->settings->categorytile8buttonurl)) ? false : $PAGE->theme->settings->categorytile8buttonurl;
+                (empty($config->categorytile8buttonurl)) ? false : $config->categorytile8buttonurl;
         $categorytile8target =
-                (empty($PAGE->theme->settings->categorytile8target)) ? false : $PAGE->theme->settings->categorytile8target;
-        $categorytile8image = (empty($PAGE->theme->settings->categorytile8image)) ? false : 'categorytile8image';
+                (empty($config->categorytile8target)) ? false : $config->categorytile8target;
+        $categorytile8image = (empty($config->categorytile8image)) ? false : 'categorytile8image';
         if ($hascategorytile8 == true &&
                 substr($categorytile8buttonurl, 0, strlen('/course/index.php?categoryid=')) === '/course/index.php?categoryid=') {
             $category_id = str_replace('/course/index.php?categoryid=', '', $categorytile8buttonurl);
             try {
-                $category = core_course_category::get($category_id);
+                $category = \core_course_category::get($category_id);
             } catch (\Exception $e) {
                 $hascategorytile8 = false;
             }
         }
 
-        $categorytile9image = (empty($PAGE->theme->settings->categorytile9image)) ? false : 'categorytile9image';
-        $tekst9 = (empty($PAGE->theme->settings->categorytile9buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile9buttontext);
-        $target9 = (empty($PAGE->theme->settings->categorytile1target)) ? false : $PAGE->theme->settings->categorytile1target;
+        $categorytile9image = (empty($config->categorytile9image)) ? false : 'categorytile9image';
+        $tekst9 = (empty($config->categorytile9buttontext)) ? false :
+                format_string($config->categorytile9buttontext);
+        $target9 = (empty($config->categorytile1target)) ? false : $config->categorytile1target;
         $hascategorytile9 = false;
         $result_array = array();
         $myuser = new stdClass();
@@ -263,10 +265,10 @@ class main implements renderable, templatable {
             }
         }
 
-        $categorytile10image = (empty($PAGE->theme->settings->categorytile10image)) ? false : 'categorytile10image';
-        $tekst10 = (empty($PAGE->theme->settings->categorytile10buttontext)) ? false :
-                format_string($PAGE->theme->settings->categorytile10buttontext);
-        $target10 = (empty($PAGE->theme->settings->categorytile1target)) ? false : $PAGE->theme->settings->categorytile1target;
+        $categorytile10image = (empty($config->categorytile10image)) ? false : 'categorytile10image';
+        $tekst10 = (empty($config->categorytile10buttontext)) ? false :
+                format_string($config->categorytile10buttontext);
+        $target10 = (empty($config->categorytile1target)) ? false : $config->categorytile1target;
 
         $result_array = array();
         $categorytilessum = 9 -

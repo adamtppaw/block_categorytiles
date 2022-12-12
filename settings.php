@@ -48,6 +48,7 @@ if ($hassiteconfig) {
         $name = 'block_categorytiles/categorytile1image';
         $title = get_string('categorytileimage', 'block_categorytiles');
         $description = get_string('categorytileimage_desc', 'block_categorytiles');
+        $options = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
         $setting = new admin_setting_configstoredfile($name, $title, $description, 'categorytile1image');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $settings->add($setting);

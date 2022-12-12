@@ -34,72 +34,38 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+/*
+function block_categorytiles_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
 
-function file_serve($filearea, $args, $forcedownload, $options){
-    global $CFG;
     require_once("$CFG->libdir/filelib.php");
+    $config = get_config('block_categorytiles');
 
-    $syscontext = context_system::instance();
-    $component = 'block_'.$this->name;
+    if ($context->contextlevel == CONTEXT_SYSTEM &&
+            (preg_match('/categorytile[1-9]image/', $filearea) || $filearea === 'categorytile10image')) {
+        $syscontext = context_system::instance();
+        $component = 'block_' . $this->name;
 
-    $revision = array_shift($args);
-    if ($revision < 0) {
-        $lifetime = 0;
-    } else {
-        $lifetime = 60*60*24*60;
-        // By default, theme files must be cache-able by both browsers and proxies.
-        if (!array_key_exists('cacheability', $options)) {
-            $options['cacheability'] = 'public';
+        $revision = array_shift($args);
+        if ($revision < 0) {
+            $lifetime = 0;
+        } else {
+            $lifetime = 60 * 60 * 24 * 60;
+            // By default, theme files must be cache-able by both browsers and proxies.
+            if (!array_key_exists('cacheability', $options)) {
+                $options['cacheability'] = 'public';
+            }
+        }
+
+        $fs = get_file_storage();
+        $relativepath = implode('/', $args);
+
+        $fullpath = "/{$syscontext->id}/{$component}/{$filearea}/0/{$relativepath}";
+        $fullpath = rtrim($fullpath, '/');
+        if ($file = $fs->get_file_by_hash(sha1($fullpath))) {
+            send_stored_file($file, $lifetime, 0, $forcedownload, $options);
+            return true;
+        } else {
+            send_file_not_found();
         }
     }
-
-    $fs = get_file_storage();
-    $relativepath = implode('/', $args);
-
-    $fullpath = "/{$syscontext->id}/{$component}/{$filearea}/0/{$relativepath}";
-    $fullpath = rtrim($fullpath, '/');
-    if ($file = $fs->get_file_by_hash(sha1($fullpath))) {
-        send_stored_file($file, $lifetime, 0, $forcedownload, $options);
-        return true;
-    } else {
-        send_file_not_found();
-    }
-}
-
-
-function block_categorytiles_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-//static $theme;
-//if (empty($theme)) {
-//$theme = theme_config::load('fred');
-//}
-
-
-if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === '')) {
-    //$theme = theme_config::load('fred');
-    $config = get_config('block_categorytiles');
-    return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing1image') {
-    return $theme->setting_file_serve('marketing1image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing2image') {
-    return $theme->setting_file_serve('marketing2image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing3image') {
-    return $theme->setting_file_serve('marketing3image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing4image') {
-    return $theme->setting_file_serve('marketing4image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing5image') {
-    return $theme->setting_file_serve('marketing5image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing6image') {
-    return $theme->setting_file_serve('marketing6image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing7image') {
-    return $theme->setting_file_serve('marketing7image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing8image') {
-    return $theme->setting_file_serve('marketing8image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing9image') {
-    return $theme->setting_file_serve('marketing9image', $args, $forcedownload, $options);
-    } else if ($filearea === 'marketing10image') {
-    return $theme->setting_file_serve('marketing10image', $args, $forcedownload, $options);
-    }
-    else {
-        send_file_not_found();
-    }
-}
+}*/
