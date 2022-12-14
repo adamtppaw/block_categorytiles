@@ -54,8 +54,8 @@ class block_categorytiles extends block_base {
         $this->content->text = $renderer->render($renderable);
         $this->content->footer = '';
 
-        if (!empty($this->config->text)) {
-            $this->content->text = $this->config->text;
+        if (!empty($this->content->text)) {
+            $this->content->text = $this->content->text;
         } else {
             $text = 'Please define the content text in /blocks/categorytiles/block_categorytiles.php.';
             $this->content->text = $text;

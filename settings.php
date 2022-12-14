@@ -28,8 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 if ($hassiteconfig) {
     // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedIf
     if ($ADMIN->fulltree) {
-        // TODO: Define the plugin settings page - {@link https://docs.moodle.org/dev/Admin_settings}.
-
         // This is the descriptor for Category tile Spot One
         $name = 'block_categorytiles/categorytile1info';
         $heading = get_string('categorytile1', 'block_categorytiles');
@@ -50,6 +48,7 @@ if ($hassiteconfig) {
         $name = 'block_categorytiles/categorytile1image';
         $title = get_string('categorytileimage', 'block_categorytiles');
         $description = get_string('categorytileimage_desc', 'block_categorytiles');
+        $options = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
         $setting = new admin_setting_configstoredfile($name, $title, $description, 'categorytile1image');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $settings->add($setting);
@@ -552,8 +551,5 @@ if ($hassiteconfig) {
         $setting = new admin_setting_configstoredfile($name, $title, $description, 'categorytile10image');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $settings->add($setting);
-
-        // Must add the page after definiting all the settings!
-        $settings->add($settings);
     }
 }
